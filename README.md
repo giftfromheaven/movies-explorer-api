@@ -16,10 +16,10 @@
 
 Клонировать репозиторий:
 
-- `https://github.com/giftfromheaven/movies-explorer-api.git`
+`https://github.com/giftfromheaven/movies-explorer-api.git`
 
 Установить зависимости и запустить приложение в режиме разработки:
 
-- `npm install` - устанавливает зависимости;
+`npm install` - устанавливает зависимости;
 
-- `npm run dev` - запускает сервер в режиме разработки;
+`npm run dev` - запускает сервер в режиме разработки;
