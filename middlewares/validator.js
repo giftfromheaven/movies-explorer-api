@@ -1,6 +1,6 @@
-const { celebrate, Joi, CelebrateError } = require('celebrate');
+const { celebrate, Joi, CelebrateError } = require("celebrate");
 
-const { isURL } = require('validator');
+const { isURL } = require("validator");
 
 const urlValidator = (value) => {
   if (!isURL(value)) {
@@ -47,7 +47,7 @@ const validateCreateMovie = celebrate({
       .regex(/[\w.:!?"«»;@%№()*#,\s]/i)
       .min(1),
     image: Joi.string().required().custom(urlValidator),
-    trailer: Joi.string().required().custom(urlValidator),
+    trailerLink: Joi.string().required().custom(urlValidator),
     thumbnail: Joi.string().required().custom(urlValidator),
     movieId: Joi.number().required(),
   }),
@@ -55,8 +55,7 @@ const validateCreateMovie = celebrate({
 
 const validateDeleteMovie = celebrate({
   params: Joi.object().keys({
-    movieId: Joi.string().required().alphanum().length(24)
-      .hex(),
+    movieId: Joi.string().required().alphanum().length(24).hex(),
   }),
 });
 
