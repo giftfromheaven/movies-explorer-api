@@ -10,14 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Pancfly/movies-explorer-api.git"
+    "url": "git+https://github.com/giftfromheaven/movies-explorer-api.git"
   },
   "author": "Pancfly",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Pancfly/movies-explorer-api/issues"
+    "url": "https://github.com/giftfromheaven/movies-explorer-api/issues"
   },
-  "homepage": "https://github.com/Pancfly/movies-explorer-api#readme",
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
