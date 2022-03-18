@@ -31,15 +31,19 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: {
-      validator: (url) => validator.isURL(url),
+      validator(url) {
+        return validator.isURL(url);
+      },
       message: 'Ссылка не подходит',
     },
   },
-  trailerLink: {
+  trailer: {
     type: String,
     required: true,
     validate: {
-      validator: (url) => validator.isURL(url),
+      validator(url) {
+        return validator.isURL(url);
+      },
       message: 'Ссылка не подходит',
     },
   },
@@ -47,7 +51,9 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: {
-      validator: (url) => validator.isURL(url),
+      validator(url) {
+        return validator.isURL(url);
+      },
       message: 'Ссылка не подходит',
     },
   },
@@ -62,11 +68,23 @@ const movieSchema = new mongoose.Schema({
   },
   nameRU: {
     type: String,
+    minlength: 2,
     required: true,
+    validate: {
+      validator(name) {
+        return /[а-я.:!?"«»;@%№()*#,ё\s]/gi.test(name);
+      },
+    },
   },
   nameEN: {
     type: String,
+    minlength: 2,
     required: true,
+    validate: {
+      validator(name) {
+        return /[\w.:!?"«»;@%№()*#,\s]/gi.test(name);
+      },
+    },
   },
 });
 

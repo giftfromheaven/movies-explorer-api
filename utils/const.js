@@ -1,5 +1,5 @@
-const mongoAdress = 'mongodb://localhost:27017/moviesdb';
-const port = 3000;
+const mongoAdress = 'mongodb://localhost:27017/bitfilmsdb';
+const port = 3001;
 const allowedCors = [
   'http://gfh.movie.nomoredomains.work',
   'https://gfh.movie.nomoredomains.work',
@@ -9,11 +9,4 @@ const allowedCors = [
   'localhost:3000',
 ];
 
-const jwtData = 'randomdata';
-
-module.exports = {
-  mongoAdress,
-  port,
-  allowedCors,
-  jwtData,
-};
+module.exports = { mongoAdress, port, allowedCors };
