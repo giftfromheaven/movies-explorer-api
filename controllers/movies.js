@@ -27,9 +27,7 @@ const createMovie = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        throw new BadRequestError(
-          'Переданы некорректные данные при создании фильма',
-        );
+        throw new BadRequestError('Переданы некорректные данные при создании фильма');
       }
     })
     .catch(next);
@@ -42,10 +40,10 @@ const deleteMovie = (req, res, next) => {
   Movie.findById(movieId)
     .then((movie) => {
       if (!movie) {
-        throw new NotFoundError('Передан несуществующий _id фильма');
+        throw new NotFoundError('Передан несуществующий _id фильма.');
       }
       if (movie.owner.toString() !== owner) {
-        throw new ForbiddenError('Нет доступа к удалению фильма');
+        throw new ForbiddenError('Нет доступа к удалению фильма.');
       } else {
         Movie.findByIdAndDelete(movieId)
           .then((deletedMovie) => {

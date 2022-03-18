@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const jwtData = require('../utils/const');
 
 const NotAuthError = require('../errors/not-auth-error');
 
@@ -9,19 +8,12 @@ module.exports = (req, res, next) => {
   const token = req.cookies.jwt;
 
   if (!token) {
-    next(
-      new NotAuthError(
-        'К этому ресурсу есть доступ только для авторизированных пользователей',
-      ),
-    );
+    next(new NotAuthError('К этому ресурсу есть доступ только для авторизированных пользователей'));
   }
 
   let payload;
   try {
-    payload = jwt.verify(
-      token,
-      NODE_ENV === 'production' ? JWT_SECRET : jwtData,
-    );
+    payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
   } catch (err) {
     throw new NotAuthError('Необходима авторизация');
   }

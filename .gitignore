@@ -6,13 +6,11 @@ npm-debug.log*
 # Dependency directory
 node_modules
 
+.env
 # Optional npm cache directory
 .npm
 
 # Optional REPL history
 .DS_Store
 .idea
-.vs
-
-# env
-.env
+.vscode

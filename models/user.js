@@ -1,20 +1,14 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 const { isEmail } = require('validator');
 
-const userSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-    minlength: 2,
-    maxlength: 30,
-  },
+const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
     unique: true,
     validate: {
       validator: (email) => isEmail(email),
-      messages: 'Не подходящий адрес электронной почты',
+      message: 'Не подходящий адрес электронной почты',
     },
   },
   password: {
@@ -23,6 +17,13 @@ const userSchema = new Schema({
     minlength: 5,
     select: false,
   },
+  name: {
+    type: String,
+    required: true,
+    minlength: 2,
+    maxlength: 30,
+    default: `User${Math.floor(Math.random() * 100)}`,
+  },
 });
 
-module.exports = model('user', userSchema);
+module.exports = mongoose.model('user', userSchema);

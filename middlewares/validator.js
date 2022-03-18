@@ -24,30 +24,15 @@ const validateUpdateProfile = celebrate({
 
 const validateCreateMovie = celebrate({
   body: Joi.object().keys({
-    country: Joi.string()
-      .required()
-      .regex(/[\wа-яё\s]/i)
-      .min(1),
-    director: Joi.string()
-      .required()
-      .regex(/[\wа-яё\s]/i)
-      .min(1),
+    country: Joi.string().required().regex(/[\wа-яё\s]/i).min(1),
+    director: Joi.string().required().regex(/[\wа-яё\s]/i).min(1),
     duration: Joi.number().required(),
     year: Joi.string().required().min(2).max(4),
-    description: Joi.string()
-      .required()
-      .regex(/[\wа-я.:!?"«»;@%№()*#,ё\s]/i)
-      .min(1),
-    nameRU: Joi.string()
-      .required()
-      .regex(/[а-я.:!?"«»;@%№()*#,ё\s]/i)
-      .min(1),
-    nameEN: Joi.string()
-      .required()
-      .regex(/[\w.:!?"«»;@%№()*#,\s]/i)
-      .min(1),
+    description: Joi.string().required().regex(/[\wа-я.:!?"«»;@%№()*#,ё\s]/i).min(1),
+    nameRU: Joi.string().required().regex(/[а-я.:!?"«»;@%№()*#,ё\s]/i).min(1),
+    nameEN: Joi.string().required().regex(/[\w.:!?"«»;@%№()*#,\s]/i).min(1),
     image: Joi.string().required().custom(urlValidator),
-    trailerLink: Joi.string().required().custom(urlValidator),
+    trailer: Joi.string().required().custom(urlValidator),
     thumbnail: Joi.string().required().custom(urlValidator),
     movieId: Joi.number().required(),
   }),
